@@ -21,7 +21,7 @@ __Install dependencies__
 
 ## Documentation
 
-As detailed in [this tutorial](https://learnk8s.io/blog/deploying-laravel-to-kubernetes/).
+As detailed in [this tutorial](https://learnk8s.io/blog/deploying-laravel-to-kubernetes/)
 
 ## Support
 
