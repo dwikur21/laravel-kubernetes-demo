@@ -12,10 +12,12 @@ spec:
         run: laravel-kubernetes-demo
     spec:
       containers:
-        - name: demo
-          image: learnk8s/laravel-kubernetes-demo
+        - name: demo-laravel
+          image: core.harbor.lapan.go.id/library/laravel-kubernetes-demo:v1.0
           ports:
             - containerPort: 80
           env:
             - name: APP_KEY
               value: base64:cUPmwHx4LXa4Z25HhzFiWCf7TlQmSqnt98pnuiHmzgY=
+      imagePullSecrets:
+       - name: regcred
