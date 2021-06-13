@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: laravel-kubernetes-demo
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     run: laravel-kubernetes-demo
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 80
-      nodePort: 31000
