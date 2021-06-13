@@ -3,12 +3,20 @@ kind: Ingress
 metadata:
   name: laravel-kubernetes-demo-ingress
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: selfsigned-issuer
+    konghq.com/https-redirect-status-code: "301"
+    konghq.com/protocols: https
+    kubernetes.io/ingress.class: kong
 spec:
   rules:
-    - http:
+    - host: test-laravel.lapan.go.id
+      http:
         paths:
           - path: /
             backend:
               serviceName: laravel-kubernetes-demo
               servicePort: 80
+  tls:
+  - hosts:
+    - test-laravel.lapan.go.id
+    secretName: test-laravel-ingress-cert
